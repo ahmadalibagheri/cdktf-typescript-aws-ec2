@@ -1,6 +1,14 @@
-# typescript-aws
+## Documentation
 
-A CDK for Terraform application in TypeScript.
+* Explore the Terraform for Terraform cli [CLI](https://www.terraform.io/downloads.html).
+* Explore the Nodejs for npm cli [CLI](https://nodejs.org/en/).
+* Explore the Yaan for Yarn cli [CLI](hhttps://classic.yarnpkg.com/en/docs/install#debian-stable).
+* Explore the CDK for cdktf [CLI](https://github.com/hashicorp/terraform-cdk/blob/main/docs/cli-commands.md).
+
+
+# typescript-aws-ec2
+
+A CDK for Terraform application in TypeScript for EC2 configuraiton.
 
 ## Usage
 
@@ -98,7 +106,8 @@ tsc
 ```
 At this step you can run code with two different way:
 
-The first way
+# The first way:
+
 Generate Terraform configuration
 
 ```bash
@@ -114,4 +123,12 @@ cd cdktf.out
 terraform init
 terraform plan
 terraform apply
+```
+
+# The second way:
+
+Run cdktf commands
+
+```bash
+cdktf deploy
 ```
