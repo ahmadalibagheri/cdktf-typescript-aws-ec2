@@ -2,9 +2,15 @@
 
 * Explore the Terraform for Terraform cli [CLI](https://www.terraform.io/downloads.html).
 * Explore the Nodejs for npm cli [CLI](https://nodejs.org/en/).
-* Explore the Yarn for Yarn cli [CLI](hhttps://classic.yarnpkg.com/en/docs/install#debian-stable).
+* Explore the Yarn for Yarn cli [CLI](https://classic.yarnpkg.com/en/docs/install#debian-stable).
 * Explore the CDK for cdktf [CLI](https://github.com/hashicorp/terraform-cdk/blob/main/docs/cli-commands.md).
 
+
+Add your AWS credentials as two environment variables, AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY, replacing AAAAAA with each respective values.
+```shell
+$ export AWS_ACCESS_KEY_ID=AAAAAA
+$ export AWS_SECRET_ACCESS_KEY=AAAAA
+```
 
 # typescript-aws-ec2
 
