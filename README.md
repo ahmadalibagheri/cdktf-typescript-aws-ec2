@@ -1,8 +1,8 @@
 ## Documentation
 
-* Explore the Terraform for Terraform cli [CLI](https://www.terraform.io/downloads.html).
-* Explore the Nodejs for npm cli [CLI](https://nodejs.org/en/).
-* Explore the Yarn for Yarn cli [CLI](https://classic.yarnpkg.com/en/docs/install#debian-stable).
+* Explore the Terraform for Terraform [CLI](https://www.terraform.io/downloads.html).
+* Explore the Nodejs for npm [CLI](https://nodejs.org/en/).
+* Explore the Yarn for Yarn [CLI](https://classic.yarnpkg.com/en/docs/install#debian-stable).
 * Explore the CDK for cdktf [CLI](https://github.com/hashicorp/terraform-cdk/blob/main/docs/cli-commands.md).
 
 
