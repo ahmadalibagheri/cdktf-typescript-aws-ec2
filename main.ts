@@ -51,7 +51,7 @@ class MyStack extends TerraformStack {
     new ec2.Instance(this, "compute", {
       ami: "ami-03d315ad33b9d49c4", //Ubuntu Server 20.04 LTS (HVM)
       instanceType: "t2.micro",
-      keyName: "keycloak-key",
+      keyName: "DevOps",
       vpcSecurityGroupIds: [instancesg.id],
       tags: {
         Name: this.node.tryGetContext("Name"),
