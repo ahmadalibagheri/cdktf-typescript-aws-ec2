@@ -1,6 +1,6 @@
 import { Construct } from "constructs";
-import { App, TerraformStack, TerraformOutput } from "cdktf";
-import { AwsProvider, Instance, SecurityGroup } from "./.gen/providers/aws";
+import { App, TerraformStack } from "cdktf";
+import { AwsProvider, ec2 , vpc} from "./.gen/providers/aws";
 
 class MyStack extends TerraformStack {
   constructor(scope: Construct, id: string) {
@@ -10,7 +10,7 @@ class MyStack extends TerraformStack {
       region: "us-east-1",
     });
 
-    const instancesg = new SecurityGroup(this, "instancesg", {
+    const instancesg = new vpc.SecurityGroup(this, "instancesg", {
       name: "CDKtf-TypeScript-Demo-sg",
       description: "Allows traffic to the instance.",
       ingress: [
@@ -42,34 +42,27 @@ class MyStack extends TerraformStack {
         },
       ],
       tags: {
-        Name: "CDKtf-TypeScript-Demo-sg",
-        Team: "Devops",
-        Company: "Your compnay",
+        Name: this.node.tryGetContext("Name"),
+        Team: this.node.tryGetContext("Team"),
+        Company: this.node.tryGetContext("Company"),
       },
     });
 
-    const instance = new Instance(this, "compute", {
+    new ec2.Instance(this, "compute", {
       ami: "ami-03d315ad33b9d49c4", //Ubuntu Server 20.04 LTS (HVM)
       instanceType: "t2.micro",
-      keyName: "ci-cd",
+      keyName: "keycloak-key",
       vpcSecurityGroupIds: [instancesg.id],
       tags: {
-        Name: "CDKtf-TypeScript-Demo",
-        Team: "Devops",
-        Company: "Your compnay",
+        Name: this.node.tryGetContext("Name"),
+        Team: this.node.tryGetContext("Team"),
+        Company: this.node.tryGetContext("Company"),
       },
     });
 
-    new TerraformOutput(this, "security_ids", {
-      value: instancesg.id,
-    });
-
-    new TerraformOutput(this, "public_ip", {
-      value: instance.publicIp,
-    });
   }
 }
 
-const app = new App();
+const app = new App({ context: { Name: "CDKtf-TypeScript-Demo" , Team: "DevOps", Company: "Your company"} });
 new MyStack(app, "typescript-aws");
 app.synth();

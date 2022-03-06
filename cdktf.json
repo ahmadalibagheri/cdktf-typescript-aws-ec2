@@ -1,6 +1,7 @@
 {
   "language": "typescript",
-  "app": "npm run --silent compile && node main.js",
+  "app": "npx ts-node main.ts",
+  "projectId": "7d52f2ea-b8f4-4b94-8f17-9bc5954f00e3",
   "terraformProviders": [
     "aws@~> 3.29.0"
   ],
